@@ -1,13 +1,15 @@
-import express from 'express';
-import AppController from '../controllers/AppController.js';
+import { Router } from 'express';
+import AppController from '../controllers/AppController';
+import UsersController from '../controllers/UsersController';
 
-const router = express.Router();
 
-// Define the GET /status endpoint
+const router = Router();
+
 router.get('/status', AppController.getStatus);
 
-// Define the GET /stats endpoint
 router.get('/stats', AppController.getStats);
 
-export default router;
+router.post('/users', UsersController.postNew);
 
+
+module.exports = router;
